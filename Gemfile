@@ -9,6 +9,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'responders'
 gem 'faker'
 gem 'populator'
+gem 'react-rails'
+gem 'better_errors'
 
 group :development, :test do
   gem 'rspec-rails'
