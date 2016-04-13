@@ -18,11 +18,20 @@ var Body = React.createClass({
   $.ajax({
     url: `/api/v1/skills/${id}`,
     type: 'DELETE',
-    success(response) {
-      console.log('successfully removed skill', response)
-    }
-  });
-},
+    success: () => {
+      this.removeSkillFromDOM(id);
+      }
+    });
+  },
+
+  removeSkillFromDOM(id){
+    var newSkills = this.state.skills.filter((skill) => {
+      return skill.id != id;
+    });
+
+    this.setState( { skills: newSkills } );
+  },
+
 
   render() {
     return(
