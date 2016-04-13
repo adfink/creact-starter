@@ -1,8 +1,8 @@
 var AllSkills = React.createClass({
 
 
-  handleDelete(){
-    console.log("delete me");
+  handleDelete(id){
+    this.props.handleDelete(id);
   },
 
   render(){
@@ -12,7 +12,7 @@ var AllSkills = React.createClass({
           <h3>{skill.name}</h3>
           <p><strong>Level:</strong> {skill.level} </p>
           <p>{skill.details}</p>
-          <button ref={skill.id} onClick={this.handleDelete}>Delete Skill</button>
+          <button onClick={this.handleDelete.bind(this, skill.id)}>Delete Skill</button>
         </div>
       )
     });
