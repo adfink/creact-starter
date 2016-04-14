@@ -7,20 +7,38 @@ var Skill = React.createClass({
   },
 
   handleEdit() {
+
+    if (this.state.editable) {
+      var name = this.refs.name.value;
+      var details = this.refs.details.value;
+      console.log('in handleEdit', this.state.editable, name, details);
+      this.onUpdate();
+    }
+    this.setState({ editable: !this.state.editable })
+  },
+
+  onUpdate() {
+    if (this.state.editable) {
+      var name    = this.refs.name.value;
+      var details = this.refs.details.value;
+      var skill = { name: name, details: details }
+
+      this.props.handleUpdate(skill);
+    }
     this.setState({ editable: !this.state.editable })
   },
 
 
   render(){
-
-    var name = this.state.editable ? <input type='text' defaultValue={this.props.skill.name} />
-                                   : <h3>{this.props.skill.name}</h3>
-
-    var details = this.state.editable ? <textarea type='text' defaultValue={this.props.skill.details}></textarea>
-                                      : <p>{this.props.skill.details}</p>
-
-
-
+      var name = this.state.editable ? <input type='text'
+                                              ref='name'
+                                              defaultValue={this.props.skill.name} />
+                                     : <h3>{this.props.skill.name}</h3>
+      var details = this.state.editable ? <textarea type='text'
+                                                    ref='details'
+                                                    defaultValue={this.props.skill.details}>
+                                          </textarea>
+                                        : <p>{this.props.skill.details}</p>
     return(
       <div>
         {name}

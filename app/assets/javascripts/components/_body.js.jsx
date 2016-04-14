@@ -14,6 +14,10 @@ var Body = React.createClass({
     $.getJSON('/api/v1/skills.json', (response) => { this.setState({ skills: response }) });
   },
 
+  handleUpdate(skill){
+    console.log(skill, "hiiii")
+  },
+
   handleDelete(id) {
   $.ajax({
     url: `/api/v1/skills/${id}`,
@@ -38,7 +42,9 @@ var Body = React.createClass({
       <div>
         <h1>body</h1>
         <NewSkill handleSubmit={this.handleSubmit} />
-        <AllSkills skills={this.state.skills} handleDelete={this.handleDelete} />
+        <AllSkills skills={this.state.skills}
+                   handleDelete={this.handleDelete}
+                   handleUpdate={this.handleUpdate} />
       </div>
     )
   }
