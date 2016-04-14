@@ -5,10 +5,6 @@ var AllSkills = React.createClass({
     this.props.handleDelete(id);
   },
 
-  handleEdit(){
-    console.log("edit iiiing");
-  },
-
   render(){
     var skills = this.props.skills.map((skill) => {
       return(
