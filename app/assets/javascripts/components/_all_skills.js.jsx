@@ -5,6 +5,10 @@ var AllSkills = React.createClass({
     this.props.handleDelete(id);
   },
 
+  handleEdit(id){
+    console.log("edit iiiing");
+  },
+
   render(){
     var skills = this.props.skills.map((skill) => {
       return (
@@ -13,6 +17,7 @@ var AllSkills = React.createClass({
           <p><strong>Level:</strong> {skill.level} </p>
           <p>{skill.details}</p>
           <button onClick={this.handleDelete.bind(this, skill.id)}>Delete Skill</button>
+          <button onClick={this.handleEdit}>Edit</button>
         </div>
       )
     });
