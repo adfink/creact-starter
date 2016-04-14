@@ -14,8 +14,23 @@ var Body = React.createClass({
     $.getJSON('/api/v1/skills.json', (response) => { this.setState({ skills: response }) });
   },
 
-  handleUpdate(skill){
-    console.log(skill, "hiiii")
+  handleUpdate(skill) {
+
+    $.ajax({
+      url: `/api/v1/skills/${skill.id}`,
+      type: 'PUT',
+      data: {skill: skill},
+      success: () => {
+        this.updateSkills(skill)
+      }
+    });
+  },
+
+  updateSkills(skill) {
+    var skills = this.state.skills.filter((s) => { return s.id != skill.id });
+    skills.push(skill);
+
+    this.setState({ skills: skills });
   },
 
   handleDelete(id) {

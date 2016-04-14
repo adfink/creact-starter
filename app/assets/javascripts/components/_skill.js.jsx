@@ -19,9 +19,12 @@ var Skill = React.createClass({
 
   onUpdate() {
     if (this.state.editable) {
+      var id      = this.props.skill.id;
       var name    = this.refs.name.value;
       var details = this.refs.details.value;
-      var skill = { name: name, details: details }
+      var level   = this.props.skill.level;
+
+      var skill = {id: id, name: name, details: details, level: level }
 
       this.props.handleUpdate(skill);
     }
