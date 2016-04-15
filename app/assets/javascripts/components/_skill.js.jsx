@@ -47,13 +47,17 @@ var Skill = React.createClass({
         {name}
 
         <div className='skill-level'>
-          <button type="button" className="btn btn-default btn-sm">
+          <button type="button"
+                  className="btn btn-default btn-sm"
+                  onClick={this.handleLevelChange.bind(this, 'down')}>
             <span className="glyphicon glyphicon-triangle-bottom"></span>
           </button>
 
             <p><strong>Level:</strong> {this.props.skill.level}</p>
 
-          <button type="button" className="btn btn-default btn-sm">
+          <button type="button"
+                  className="btn btn-default btn-sm"
+                  onClick={this.handleLevelChange.bind(this, 'up')}>
             <span className="glyphicon glyphicon-triangle-top"></span>
           </button>
         </div>
