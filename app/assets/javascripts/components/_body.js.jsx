@@ -55,7 +55,7 @@ var Body = React.createClass({
   render() {
     return(
       <div>
-        <h1>body</h1>
+        <h1>This is a list of skills... the goal is to add to them</h1>
         <NewSkill handleSubmit={this.handleSubmit} />
         <AllSkills skills={this.state.skills}
                    handleDelete={this.handleDelete}

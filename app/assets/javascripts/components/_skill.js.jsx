@@ -32,6 +32,9 @@ var Skill = React.createClass({
   },
 
   handleLevelChange(action){
+
+
+
     var levels = ['bad', 'halfbad', 'fantastic'];
     var name = this.props.skill.name;
     var details = this.props.skill.details;
