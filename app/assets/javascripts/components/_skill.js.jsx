@@ -11,7 +11,6 @@ var Skill = React.createClass({
     if (this.state.editable) {
       var name = this.refs.name.value;
       var details = this.refs.details.value;
-      console.log('in handleEdit', this.state.editable, name, details);
       this.onUpdate();
     }
     this.setState({ editable: !this.state.editable })
